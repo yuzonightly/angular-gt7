@@ -8,7 +8,7 @@ const setRoutes = (app): void => {
     const carCtrl = new CarCtrl();
     const circuitCtrl = new CircuitCtrl();
 
-    // Cats
+    // Cars
     router.route('/cars').get(carCtrl.getAll);
     // router.route('/cars/count').get(carCtrl.count);
     router.route('/cat').post(carCtrl.insert);
@@ -16,7 +16,7 @@ const setRoutes = (app): void => {
     router.route('/cat/:id').put(carCtrl.update);
     router.route('/cat/:id').delete(carCtrl.delete);
 
-    // Users
+    // Circuits
     router.route('/circuits').get(circuitCtrl.getAll);
     // router.route('/circuits/count').get(circuitCtrl.count);
     router.route('/circuit').post(circuitCtrl.insert);
