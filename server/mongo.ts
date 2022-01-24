@@ -1,4 +1,5 @@
-import * as mongoose from 'mongoose';
+// import * as mongoose from 'mongoose';
+var mongoose = require('mongoose');
 
 const setMongo = async (): Promise<any> => {
     let mongodbURI;
@@ -9,6 +10,6 @@ const setMongo = async (): Promise<any> => {
     }
     await mongoose.connect(mongodbURI);
     console.log('Connected to MongoDB');
-};
+}
 
 export default setMongo;

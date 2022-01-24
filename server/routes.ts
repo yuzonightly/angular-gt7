@@ -11,10 +11,10 @@ const setRoutes = (app): void => {
     // Cars
     router.route('/cars').get(carCtrl.getAll);
     // router.route('/cars/count').get(carCtrl.count);
-    router.route('/cat').post(carCtrl.insert);
-    router.route('/cat/:id').get(carCtrl.get);
-    router.route('/cat/:id').put(carCtrl.update);
-    router.route('/cat/:id').delete(carCtrl.delete);
+    router.route('/car').post(carCtrl.insert);
+    router.route('/car/:id').get(carCtrl.get);
+    router.route('/car/:id').put(carCtrl.update);
+    router.route('/car/:id').delete(carCtrl.delete);
 
     // Circuits
     router.route('/circuits').get(circuitCtrl.getAll);
@@ -26,7 +26,6 @@ const setRoutes = (app): void => {
 
     // Apply the routes to our application with the prefix /api
     app.use('/api', router);
-
 };
 
 export default setRoutes;
