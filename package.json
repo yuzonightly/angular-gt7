@@ -7,7 +7,6 @@
     "build": "ng build && tsc -p server",
     "start": "node dist/server/app.js",
     "predev": "tsc -p server",
-    "dmon": "concurrently \"mongod\" \"tsc -w -p server\" \"nodemon dist/server/app.js\"",
     "dev": "concurrently \"mongod\" \"ng serve --open\" \"tsc -w -p server\" \"nodemon dist/server/app.js\"",
     "prod": "concurrently \"mongod\" \"ng build && tsc -p server && node dist/server/app.js\"",
     "test": "ng test",
