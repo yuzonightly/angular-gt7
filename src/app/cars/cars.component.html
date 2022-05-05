@@ -1,0 +1,28 @@
+<h2>Storage</h2>
+
+<div>
+  <label for="new-car">Car name: </label>
+  <input id="new-car" #carName />
+</div>
+
+<button
+  type="button"
+  class="add-button"
+  (click)="add(carName.value); carName.value = ''"
+>
+  Add car
+</button>
+
+<ul class="cars">
+  <li *ngFor="let car of cars">
+    <a routerLink="/detail/{{ car.id }}">
+      <span class="badge">{{ car.id }}</span> {{ car.name }}
+    </a>
+    <button
+      type="button"
+      class="delete"
+      title="delete car"
+      (click)="delete(car)"
+    ></button>
+  </li>
+</ul>

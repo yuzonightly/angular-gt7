@@ -1,12 +1,6 @@
-# angular-gt7
+# AngularGt7
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
-
-## Prerequisites
-
-1. Install [Node.js](https://nodejs.org) and [MongoDB](https://www.mongodb.com)
-2. Install Angular CLI: `npm i -g @angular/cli`
-3. Under root folder install all the dependencies: `npm i`
 
 ## Development server
 
