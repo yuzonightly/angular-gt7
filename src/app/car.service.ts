@@ -7,6 +7,7 @@ import { Car } from './car';
 import { CARS } from './mock-cars';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
+import { timeStamp } from 'console';
 
 @Injectable({
   providedIn: 'root',
@@ -54,11 +55,32 @@ export class CarService {
     if (!term.trim()) {
       return of([]);
     }
+    return this.http
+      .get<Car[]>(`${this.carsUrl}/?name=${term}`)
+      .pipe(
+        tap(
+          (x) =>
+            x.length
+              ? this.log(`found cars matching "${term}"`)
+              : this.log(`no cars matching "${term}"`),
+          catchError(this.handleError<Car[]>(`searchCars`, []))
+        )
+      );
+  }
+
+  addCar(car: Car): Observable<Car> {
+    return this.http.post<Car>(this.carsUrl, car, this.httpOptions).pipe(
+      tap((newCar: Car) => this.log(`added car w/ id ${newCar.id}`)),
+      catchError(this.handleError<Car>('addCar'))
+    );
   }
 
   deleteCar(id: number): Observable<Car> {
     const url = `${this.carsUrl}/${id}`;
-    return this.http.delete<Car>(url, this.httpOptions);
+    return this.http.delete<Car>(url, this.httpOptions).pipe(
+      tap((_) => this.log(`deleted car id=${id}`)),
+      catchError(this.handleError<Car>('deletedCar'))
+    );
   }
 
   updateCar(car: Car): Observable<any> {
