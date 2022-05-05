@@ -1,0 +1,8 @@
+<h2>Some more cars</h2>
+<div class="cars-menu">
+  <a *ngFor="let car of cars" routerLink="/detail/{{ car.id }}">
+    {{ car.name }}
+  </a>
+</div>
+
+<app-hero-search></app-hero-search>
